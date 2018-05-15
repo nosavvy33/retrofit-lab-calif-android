@@ -14,3 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::post('login', 'Auth\ApiController@login');
+
+
+Route::post('denuncia/destroy','DenunciaController@destroy');
+Route::post('denuncia/store','DenunciaController@store');
+Route::get('denuncias','DenunciaController@index');
