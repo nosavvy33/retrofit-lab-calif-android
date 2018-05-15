@@ -61,15 +61,15 @@ DROP TABLE IF EXISTS `denuncia`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `denuncia` (
   `iddenuncia` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(45) DEFAULT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
   `ubicacion` varchar(45) DEFAULT NULL,
   `fecha_hora` datetime DEFAULT NULL,
-  `titulo` varchar(20) DEFAULT NULL,
   `ciudadano_idciudadano` int(11) NOT NULL,
   PRIMARY KEY (`iddenuncia`),
-  KEY `fk_denuncia_ciudadano_idx` (`ciudadano_idciudadano`),
-  CONSTRAINT `fk_denuncia_ciudadano` FOREIGN KEY (`ciudadano_idciudadano`) REFERENCES `mydb`.`ciudadano` (`idciudadano`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `fk_denuncia_idciudadano_idx` (`ciudadano_idciudadano`),
+  CONSTRAINT `fk_denuncia_idciudadano` FOREIGN KEY (`ciudadano_idciudadano`) REFERENCES `ciudadano` (`idciudadano`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,6 +78,7 @@ CREATE TABLE `denuncia` (
 
 LOCK TABLES `denuncia` WRITE;
 /*!40000 ALTER TABLE `denuncia` DISABLE KEYS */;
+INSERT INTO `denuncia` VALUES (1,'robo','un robo','12.3121515151 -74.11515115',NULL,1),(3,'otro robo','vi un robo','-12.15151 -74.161651','2018-05-15 08:40:26',1);
 /*!40000 ALTER TABLE `denuncia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,4 +118,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-14 20:00:53
+-- Dump completed on 2018-05-15  8:56:32
