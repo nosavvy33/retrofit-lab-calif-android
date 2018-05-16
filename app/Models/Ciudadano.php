@@ -17,6 +17,6 @@ class Ciudadano extends Authenticatable
     
 
     public function denuncia(){
-    	return $this->hasMany('android_models\Denuncia','ciudadano_idciudadano','idciudadano');
+    	return $this->hasMany('App\Models\Denuncia','ciudadano_idciudadano','idciudadano');
     }
 }

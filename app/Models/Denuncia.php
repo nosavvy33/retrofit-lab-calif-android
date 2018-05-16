@@ -14,6 +14,6 @@ class Denuncia extends Model
 
 
     public function ciudadano(){
-    	return $this->belongsTo('android_models\Ciudadano','idciudadano','ciudadano_idciudadano');
+    	return $this->belongsTo('App\Models\Ciudadano','idciudadano','ciudadano_idciudadano');
     }
 }

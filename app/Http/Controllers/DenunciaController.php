@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Denuncia;
+use App\Models\Ciudadano;
 class DenunciaController extends Controller
 {
-    public function index(){
-    	$denuncias = Denuncia::all();
+    public function index($idciudadano){
+   
+    	$denuncias = Denuncia::where('ciudadano_idciudadano',$idciudadano)->get()->toArray();
     	echo json_encode($denuncias);
-    	exit();
-    	return response()->json($denuncias);
+    	
     }
 
     public function store(Request $request){
